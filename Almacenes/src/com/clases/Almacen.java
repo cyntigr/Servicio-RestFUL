@@ -4,38 +4,38 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Almacen {
-	private int idalmacen;
-	private String nombrealmacen;
+	private int idAlmacen;
+	private String nombreAlmacen;
 	
 	public Almacen() {
 		
 	}
 	
-	public Almacen(int idalmacen,String nombrealmacen) {
-		this.idalmacen = idalmacen;
-		this.nombrealmacen = nombrealmacen;
+	public Almacen(int idAlmacen,String nombreAlmacen) {
+		this.idAlmacen = idAlmacen;
+		this.nombreAlmacen = nombreAlmacen;
 	}
 	
-	public int getidalmacen() {
-		return idalmacen;
+	public int getidAlmacen() {
+		return idAlmacen;
 	}
 
-	public void setidalmacen(int idalmacen) {
-		this.idalmacen = idalmacen;
+	public void setidAlmacen(int idAlmacen) {
+		this.idAlmacen = idAlmacen;
 	}
 
-	public String getnombrealmacen() {
-		return nombrealmacen;
+	public String getnombreAlmacen() {
+		return nombreAlmacen;
 	}
 
-	public void setnombrealmacen(String nombrealmacen) {
-		this.nombrealmacen = nombrealmacen;
+	public void setnombreAlmacen(String nombreAlmacen) {
+		this.nombreAlmacen = nombreAlmacen;
 	}
 	
 	@Override
     public String toString() {
             try {
-                    return new JSONObject().put("id", idalmacen).put("NombreAlmacen", nombrealmacen).toString();
+                    return new JSONObject().put("id", idAlmacen).put("NombreAlmacen", nombreAlmacen).toString();
             } catch (JSONException e) {
                     return null;
             }

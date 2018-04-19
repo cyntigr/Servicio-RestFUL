@@ -31,13 +31,13 @@ public class AlmacenMe {
 		return null;
 	}
 
-	public static Almacen getAlmacen(int idalmacen) {
+	public static Almacen getAlmacen(int idAlmacen) {
 
 		try {
 			Class.forName("org.postgresql.Driver");
 			Connection conexion = Conexion.crearConexion();
 			Statement sentencia = conexion.createStatement();
-			ResultSet resultado = sentencia.executeQuery("SELECT * FROM almacenes where idalmacen = " + idalmacen + " ");
+			ResultSet resultado = sentencia.executeQuery("SELECT * FROM almacenes where idalmacen = " + idAlmacen + " ");
 
 			while (resultado.next()) {
 
@@ -60,7 +60,7 @@ public class AlmacenMe {
 			Class.forName("org.postgresql.Driver");
 			Connection conexion = Conexion.crearConexion();
 			Statement sentencia = conexion.createStatement();
-			sentencia.executeUpdate("INSERT INTO almacenes " + "VALUES (" + alm.getidalmacen() + ", '" + alm.getnombrealmacen() + "' )");
+			sentencia.executeUpdate("INSERT INTO almacenes " + "VALUES (" + alm.getidAlmacen() + ", '" + alm.getnombreAlmacen() + "' )");
 			sentencia.close();
 			conexion.close();
 			return alm;
@@ -75,7 +75,7 @@ public class AlmacenMe {
 			Class.forName("org.postgresql.Driver");
 			Connection conexion = Conexion.crearConexion();
 			Statement sentencia = conexion.createStatement();
-			sentencia.executeUpdate("UPDATE almacenes SET nombrealmacen = '" + alm.getnombrealmacen() + "'  WHERE idalmacen = " + alm.getidalmacen() + " ");
+			sentencia.executeUpdate("UPDATE almacenes SET nombrealmacen = '" + alm.getnombreAlmacen() + "'  WHERE idalmacen = " + alm.getidAlmacen() + " ");
 			sentencia.close();
 			conexion.close();
 			return alm;
@@ -85,12 +85,12 @@ public class AlmacenMe {
 		return null;
 	}
 
-	public static void deleteAlmacen(int idalmacen) {
+	public static void deleteAlmacen(int idAlmacen) {
 		try {
 			Class.forName("org.postgresql.Driver");
 			Connection conexion = Conexion.crearConexion();
 			Statement sentencia = conexion.createStatement();
-			sentencia.executeUpdate("DELETE  FROM almacenes WHERE idalmacen = " + idalmacen + "");
+			sentencia.executeUpdate("DELETE  FROM almacenes WHERE idalmacen = " + idAlmacen + "");
 			sentencia.close();
 			conexion.close();
 		} catch (Exception e) {

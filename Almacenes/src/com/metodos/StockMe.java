@@ -39,10 +39,10 @@ public class StockMe {
 		return null;
 	}
 
-	// * Con este método mostramos un stock concreto, mediante pathparam recogemos
-	// las claves
-	// * primarias necesarias para hacer el select.
-	public static Stock getStock(int idalmacen, int codarticulo) {
+	// * Con este método mostramos un stock concreto, mediante pathparam recogemos las claves
+	// * primarias necesarias para hacer el select, lo meto dentro de una lista porque me da error al 
+	// * guardar en objeto, de esta forma me lo devuelve sin problema.
+	public static List<Stock> getStock(int idalmacen, int codarticulo) {
 
 		try {
 			Class.forName("org.postgresql.Driver");
@@ -50,17 +50,16 @@ public class StockMe {
 			Statement sentencia = conexion.createStatement();
 			ResultSet resultado = sentencia.executeQuery(
 					"SELECT * FROM stock where codarticulo = " + codarticulo + " and idalmacen = " + idalmacen + " ");
+			ArrayList<Stock> stk = new ArrayList<Stock>();
 
 			while (resultado.next()) {
-				Stock stk = new Stock(resultado.getInt("codarticulo"), resultado.getInt("idalmacen"),
-						resultado.getInt("stock"));
-				return stk;
+				stk.add(new Stock(resultado.getInt("idalmacen"), resultado.getInt("codarticulo"),
+						resultado.getInt("stock")));
 			}
-
 			resultado.close();
 			sentencia.close();
 			conexion.close();
-
+			return stk;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -75,8 +74,7 @@ public class StockMe {
 			Class.forName("org.postgresql.Driver");
 			Connection conexion = Conexion.crearConexion();
 			Statement sentencia = conexion.createStatement();
-			sentencia.executeUpdate("INSERT INTO stock " + "VALUES (" + stk.getidalmacen() + ", " + stk.getcodarticulo()
-					+ ", " + stk.getstock() + " )");
+			sentencia.executeUpdate("INSERT INTO stock " + "VALUES (" + stk.getidalmacen() + ", " + stk.getcodarticulo() + ", " + stk.getstock() + " )");
 			sentencia.close();
 			conexion.close();
 			return stk;
@@ -107,8 +105,7 @@ public class StockMe {
 			Class.forName("org.postgresql.Driver");
 			Connection conexion = Conexion.crearConexion();
 			Statement sentencia = conexion.createStatement();
-			sentencia.executeUpdate(
-					"DELETE  FROM stock WHERE idalmacen = " + idalmacen + " and codarticulo = " + codarticulo + "");
+			sentencia.executeUpdate("DELETE  FROM stock WHERE idalmacen = " + idalmacen + " and codarticulo = " + codarticulo + "");
 			sentencia.close();
 			conexion.close();
 		} catch (Exception e) {

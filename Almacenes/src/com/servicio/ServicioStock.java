@@ -26,7 +26,7 @@ public class ServicioStock {
 	@GET
 	@Path("/{idalmacen}/{codarticulo}")
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Stock getConcreto(@PathParam("idalmacen,codarticulo") int idalmacen, int codarticulo) {
+	public List<Stock> getConcreto(@PathParam("idalmacen") int idalmacen,@PathParam("codarticulo") int codarticulo) {
 		return StockMe.getStock(idalmacen,codarticulo);
 	}
 

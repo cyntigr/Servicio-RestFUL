@@ -34,13 +34,13 @@ public class ServicioAlmacen {
 	@Produces({ MediaType.APPLICATION_JSON })
 	public Response addAlmacen(Almacen alm) throws JSONException {
 		AlmacenMe.addAlmacen(alm);
-		return Response.status(200).build();
+		return Response.status(201).build();
 	}
 	@PUT
     @Produces({ MediaType.APPLICATION_JSON})
     public Response updateAlmacen(Almacen alm) throws JSONException {
         AlmacenMe.updateAlmacen(alm);
-        return Response.status(200).build(); 
+        return Response.status(202).build(); 
     }
 	@DELETE
     @Path("/{idalmacen}")

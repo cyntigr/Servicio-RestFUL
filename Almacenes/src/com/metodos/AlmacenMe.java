@@ -55,7 +55,7 @@ public class AlmacenMe {
 		return null;
 	}
 
-	public static Almacen addAlmacen(Almacen alm) {
+	public static void addAlmacen(Almacen alm) {
 		try {
 			Class.forName("org.postgresql.Driver");
 			Connection conexion = Conexion.crearConexion();
@@ -63,11 +63,11 @@ public class AlmacenMe {
 			sentencia.executeUpdate("INSERT INTO almacenes " + "VALUES (" + alm.getidAlmacen() + ", '" + alm.getnombreAlmacen() + "' )");
 			sentencia.close();
 			conexion.close();
-			return alm;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+
 	}
 
 	public static Almacen updateAlmacen(Almacen alm) {

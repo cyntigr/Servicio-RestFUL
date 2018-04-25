@@ -1,5 +1,4 @@
 package com.servicio;
-
 import java.util.List;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -18,7 +17,7 @@ import com.metodos.AlmacenMe;
 public class ServicioAlmacen {
 
 	@GET
-	@Produces({ MediaType.APPLICATION_JSON })
+	@Produces("text/html")
 	public List<Almacen> getAlm() {
 		return AlmacenMe.getAlmacenes();
 	}
@@ -26,27 +25,30 @@ public class ServicioAlmacen {
 	@GET
 	@Path("/{idalmacen}")
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Almacen getConcreto(@PathParam("idalmacen") int idalmacen){
+	public Almacen getConcreto(@PathParam("idalmacen") int idalmacen) {
 		return AlmacenMe.getAlmacen(idalmacen);
 	}
 
 	@POST
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Response addAlmacen(Almacen alm) throws JSONException {
+	public Response addAlmacen(Almacen alm)
+			throws JSONException {
 		AlmacenMe.addAlmacen(alm);
 		return Response.status(201).build();
 	}
+
 	@PUT
-    @Produces({ MediaType.APPLICATION_JSON})
-    public Response updateAlmacen(Almacen alm) throws JSONException {
-        AlmacenMe.updateAlmacen(alm);
-        return Response.status(202).build(); 
-    }
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Response updateAlmacen(Almacen alm) throws JSONException {
+		AlmacenMe.updateAlmacen(alm);
+		return Response.status(202).build();
+	}
+
 	@DELETE
-    @Path("/{idalmacen}")
-    @Produces({ MediaType.APPLICATION_JSON})
-    public Response deleteAlmacen(@PathParam("idalmacen") int idalmacen) {
-        AlmacenMe.deleteAlmacen(idalmacen);
-        return Response.status(200).build(); 
-    }
+	@Path("/{idalmacen}")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Response deleteAlmacen(@PathParam("idalmacen") int idalmacen) {
+		AlmacenMe.deleteAlmacen(idalmacen);
+		return Response.status(200).build();
+	}
 }

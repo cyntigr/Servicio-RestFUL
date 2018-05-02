@@ -4,5 +4,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="/home/fpdual1/Descargas/gson-2.2.4.jar"/>
 	<classpathentry kind="lib" path="/home/fpdual1/Descargas/org.json.jar"/>
+	<classpathentry kind="lib" path="/home/fpdual1/Descargas/jaxrs-ri/api/javax.ws.rs-api-2.1.jar"/>
+	<classpathentry kind="lib" path="/home/fpdual1/.m2/repository/com/sun/jersey/jersey-bundle/1.19.2/jersey-bundle-1.19.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

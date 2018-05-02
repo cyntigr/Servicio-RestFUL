@@ -17,7 +17,7 @@ import com.metodos.AlmacenMe;
 public class ServicioAlmacen {
 
 	@GET
-	@Produces("text/html")
+	@Produces({ MediaType.APPLICATION_JSON })
 	public List<Almacen> getAlm() {
 		return AlmacenMe.getAlmacenes();
 	}

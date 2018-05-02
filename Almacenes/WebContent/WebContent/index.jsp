@@ -9,9 +9,8 @@
 <body style="text-align: center;">
 	<div style="background-color: grey; with: 600px; height: 800px;">
 		<h1 style="color: blue;">Almacenes</h1>
-		<div>
 			<%
-				String myURL = "http://localhost:8080/Almacenes/rest/almacen";
+				String myURL = "http://localhost:8080/Almacenes/rest/almacen/";
 
 				StringBuilder sb = new StringBuilder();
 				URLConnection urlConn = null;
@@ -34,10 +33,20 @@
 				}
 				in.close();
 				out.print(sb);
-			%>
-		</div>
+%>
+  
+
 		<a href="http://localhost:8080/Almacenes/rest/almacen/">Lista de
 			almacenes</a>
+			<p id="demo"></p>
+<script>
+
+
+var obj = JSON.parse('<%= sb %>');
+document.getElementById("demo").innerHTML = obj[0];
+
+</script>
+		
 		<form method="post" action="getEspecifico.jsp">
 			<label>Introduce número de almacén: </label> <input type="number"
 				name="idalmacen">

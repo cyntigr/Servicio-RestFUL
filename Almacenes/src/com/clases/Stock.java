@@ -9,9 +9,9 @@ public class Stock {
 		
 	}
 	
-	public Stock(int idalmacen,int codarticulo,int stock) {
-		this.idalmacen = idalmacen;
+	public Stock(int codarticulo,int idalmacen,int stock) {
 		this.codarticulo = codarticulo;
+		this.idalmacen = idalmacen;
 		this.stock = stock;
 	}
 	public int getcodarticulo() {

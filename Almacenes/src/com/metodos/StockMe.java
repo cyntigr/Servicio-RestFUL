@@ -26,7 +26,7 @@ public class StockMe {
 			ArrayList<Stock> stk = new ArrayList<Stock>();
 
 			while (resultado.next()) {
-				stk.add(new Stock(resultado.getInt("idalmacen"), resultado.getInt("codarticulo"),
+				stk.add(new Stock(resultado.getInt("codarticulo"),resultado.getInt("idalmacen"),
 						resultado.getInt("stock")));
 			}
 			resultado.close();
@@ -42,7 +42,8 @@ public class StockMe {
 	// * Con este método mostramos un stock concreto, mediante pathparam recogemos las claves
 	// * primarias necesarias para hacer el select, lo meto dentro de una lista porque me da error al 
 	// * guardar en objeto, de esta forma me lo devuelve sin problema.
-	public static List<Stock> getStock(int idalmacen, int codarticulo) {
+	
+	public static List<Stock> getStock( int codarticulo,int idalmacen) {
 
 		try {
 			Class.forName("org.postgresql.Driver");
@@ -53,7 +54,7 @@ public class StockMe {
 			ArrayList<Stock> stk = new ArrayList<Stock>();
 
 			while (resultado.next()) {
-				stk.add(new Stock(resultado.getInt("idalmacen"), resultado.getInt("codarticulo"),
+				stk.add(new Stock( resultado.getInt("codarticulo"),resultado.getInt("idalmacen"),
 						resultado.getInt("stock")));
 			}
 			resultado.close();
@@ -66,8 +67,8 @@ public class StockMe {
 		return null;
 	}
 
-	// * Con este método añadimos un nuevo stock,
-	// * recogemos en un objeto los parámetros y después los cogemos con get para
+	// Con este método añadimos un nuevo stock,
+	// recogemos en un objeto los parámetros y después los cogemos con get para
 	// hacer el insert.
 	public static Stock addStock(Stock stk) {
 		try {
@@ -83,7 +84,8 @@ public class StockMe {
 		}
 		return null;
 	}
-
+	// Con este método le hacemos un cambio a algún stock ya creado, recibimos el objeto 
+	// y de ese objeto cogemos los parámetros para hacer la modificación.
 	public static Stock updateStock(Stock stk) {
 		try {
 			Class.forName("org.postgresql.Driver");
@@ -99,8 +101,9 @@ public class StockMe {
 		}
 		return null;
 	}
-
-	public static void deleteStock(int idalmacen, int codarticulo) {
+	// Con este método recogemos la clave primaria del stock que se quiere borrar y se hace un delete a 
+	// la base de datos con los parámetros recogidos. 
+	public static void deleteStock(int codarticulo,int idalmacen) {
 		try {
 			Class.forName("org.postgresql.Driver");
 			Connection conexion = Conexion.crearConexion();

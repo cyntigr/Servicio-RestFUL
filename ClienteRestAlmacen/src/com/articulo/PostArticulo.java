@@ -1,4 +1,4 @@
-package com;
+package com.articulo;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
-public class PostPruebaAlmacen {
+public class PostArticulo {
 
 	public static void main(String[] args) {
 	  try {

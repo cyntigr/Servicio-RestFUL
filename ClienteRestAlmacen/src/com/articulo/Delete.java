@@ -1,4 +1,4 @@
-package com;
+package com.articulo;
 
 import java.util.Scanner;
 import com.sun.jersey.api.client.Client;

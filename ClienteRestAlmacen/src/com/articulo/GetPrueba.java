@@ -1,4 +1,4 @@
-package com;
+package com.articulo;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;

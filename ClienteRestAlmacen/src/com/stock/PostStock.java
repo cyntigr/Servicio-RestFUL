@@ -1,4 +1,4 @@
-package com;
+package com.stock;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,12 +9,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
-public class PostPruebaAlmacen {
+public class PostStock {
 
 	public static void main(String[] args) {
 	  try {
 
-		URL url = new URL("http://localhost:8080/Almacenes/rest/almacen");
+		URL url = new URL("http://localhost:8080/Almacenes/rest/stock");
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setDoOutput(true);
 		conn.setRequestMethod("POST");
@@ -26,7 +26,7 @@ public class PostPruebaAlmacen {
 		os.flush();
 
 		if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
-			throw new RuntimeException("Failed : HTTP error code : "
+			throw new RuntimeException("HTTP code : "
 				+ conn.getResponseCode());
 		}
 

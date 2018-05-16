@@ -34,22 +34,22 @@ public class ServicioArticulo {
 
 	@POST
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Response addAlmacen(Articulos art) throws JSONException {
+	public Response addArt(Articulos art) throws JSONException {
 		ArticuloMe.addArticulo(art);
-		return Response.status(200).build();
+		return Response.status(201).build();
 	}
 
 	@PUT
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Response updateAlmacen(Articulos art) throws JSONException {
+	public Response updateArt(Articulos art) throws JSONException {
 		ArticuloMe.updateArticulo(art);
-		return Response.status(200).build();
+		return Response.status(202).build();
 	}
 
 	@DELETE
 	@Path("/{codarticulo}")
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Response deleteAlmacen(@PathParam("codarticulo") int codarticulo) {
+	public Response deleteArt(@PathParam("codarticulo") int codarticulo) {
 		ArticuloMe.deleteArticulo(codarticulo);
 		return Response.status(200).build();
 	}

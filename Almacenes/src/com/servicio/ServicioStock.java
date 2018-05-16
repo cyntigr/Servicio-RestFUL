@@ -22,32 +22,37 @@ public class ServicioStock {
 	public List<Stock> getStocks() {
 		return StockMe.getStocks();
 	}
-
+	// Con PathParam recojo el parámetro a modificar , 
+	// para luego enviarselo al método y realizar su función.
 	@GET
 	@Path("/{idalmacen}/{codarticulo}")
 	@Produces({ MediaType.APPLICATION_JSON })
 	public List<Stock> getConcreto(@PathParam("idalmacen") int idalmacen,@PathParam("codarticulo") int codarticulo) {
 		return StockMe.getStock(idalmacen,codarticulo);
 	}
-
+	// Aquí como no vamos a devolver ningun dato he utilizado response,
+	// el cual te manda una número de estado para saber si se ha realizado correctamente,
+	// hay diversos números de estado, "201" significa creado.
 	@POST
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Response addAlmacen(Stock stk) throws JSONException {
+	public Response addStk(Stock stk) throws JSONException {
 		StockMe.addStock(stk);
 		return Response.status(201).build();
 	}
-
+	// Aqui el servicio recibe un objeto el cual envia a la tabla y modifica el anterior,
+	// como el anterior te devuelve un estado, este es "202" significa aceptado.
 	@PUT
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Response updateAlmacen(Stock stk) throws JSONException {
+	public Response updateStk(Stock stk) throws JSONException {
 		StockMe.updateStock(stk);
 		return Response.status(202).build();
 	}
-
+	// Con PathParam recogemos la clave primaria para borrar el registro de la tabla,
+	// aquí devolvemos un estado "200" que significa ok!
 	@DELETE
 	@Path("/{idalmacen}/{codarticulo}")
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Response deleteAlmacen(@PathParam("idalmacen") int idalmacen,@PathParam("codarticulo") int codarticulo) {
+	public Response deleteStk(@PathParam("idalmacen") int idalmacen,@PathParam("codarticulo") int codarticulo) {
 		StockMe.deleteStock(idalmacen,codarticulo);
 		return Response.status(200).build();
 	}

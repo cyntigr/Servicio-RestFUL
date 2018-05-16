@@ -11,13 +11,11 @@ public class GetEspecifico {
 	public static void main(String[] args) {
 		String input = new Scanner(System.in).nextLine();
 		Client client = Client.create();
-		WebResource webResource = client.resource("http://192.168.0.99:8080/Almacen/rest/almacen/" + input);
+		WebResource webResource = client.resource("http://localhost:8080/Almacenes/rest/almacen/" + input);
 		String s = webResource.accept("application/json").get(String.class);
 		System.out.println(s);
 		ClientResponse response = webResource.accept("application/json").get(ClientResponse.class);  
 		int status = response.getStatus();
-		System.out.print(status);
-
 	}
 
 }

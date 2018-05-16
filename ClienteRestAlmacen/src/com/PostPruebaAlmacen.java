@@ -26,7 +26,7 @@ public class PostPruebaAlmacen {
 		os.flush();
 
 		if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
-			throw new RuntimeException("HTTP code : "
+			throw new RuntimeException("Failed : HTTP error code : "
 				+ conn.getResponseCode());
 		}
 

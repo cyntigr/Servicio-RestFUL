@@ -13,6 +13,8 @@ import org.json.JSONException;
 import com.clases.Almacen;
 import com.metodos.AlmacenMe;
 
+//Por Cintia García Ruiz 2018
+
 @Path("/almacen")
 public class ServicioAlmacen {
 

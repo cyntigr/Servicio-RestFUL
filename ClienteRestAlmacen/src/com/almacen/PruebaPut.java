@@ -1,4 +1,4 @@
-package com.articulo;
+package com.almacen;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,7 +14,7 @@ public class PruebaPut {
 	public static void main(String[] args) {
 		try {
 
-			URL url = new URL("http://localhost:8080/Almacenes/rest/articulo");
+			URL url = new URL("http://localhost:8080/Almacenes/rest/almacen");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setDoOutput(true);
 			conn.setRequestMethod("PUT");
@@ -25,7 +25,7 @@ public class PruebaPut {
 			os.write(input.getBytes());
 			os.flush();
 
-			if (conn.getResponseCode() != HttpURLConnection.HTTP_ACCEPTED) {
+			if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
 				throw new RuntimeException("HTTP code : " + conn.getResponseCode());
 			}
 

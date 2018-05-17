@@ -1,5 +1,7 @@
 package com.clases;
 
+//Por Cintia García Ruiz 2018
+
 public class Stock {
 	private int idalmacen;
 	private int codarticulo;

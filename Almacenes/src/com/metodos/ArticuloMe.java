@@ -1,5 +1,7 @@
 package com.metodos;
 
+//Por Cintia García Ruiz 2018
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;

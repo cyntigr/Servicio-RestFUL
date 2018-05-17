@@ -1,4 +1,4 @@
-package com.articulo;
+package com.almacen;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,12 +9,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
-public class PostArticulo {
+public class PostPruebaAlmacen {
 
 	public static void main(String[] args) {
 	  try {
 
-		URL url = new URL("http://localhost:8080/Almacenes/rest/articulo");
+		URL url = new URL("http://localhost:8080/Almacenes/rest/almacen");
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setDoOutput(true);
 		conn.setRequestMethod("POST");
@@ -26,7 +26,7 @@ public class PostArticulo {
 		os.flush();
 
 		if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
-			throw new RuntimeException("HTTP code : "
+			throw new RuntimeException("Failed : HTTP error code : "
 				+ conn.getResponseCode());
 		}
 

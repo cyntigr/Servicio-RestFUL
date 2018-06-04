@@ -1,4 +1,4 @@
-package com.clases;
+package com.clase.almacen.model;
 
 //Por Cintia García Ruiz 2018
 
@@ -37,7 +37,7 @@ public class Almacen {
 	@Override
     public String toString() {
             try {
-                    return new JSONObject().put("idAlmacen", idAlmacen).put("NombreAlmacen", nombreAlmacen).toString();
+                    return new JSONObject().put("id", idAlmacen).put("NombreAlmacen", nombreAlmacen).toString();
             } catch (JSONException e) {
                     return null;
             }

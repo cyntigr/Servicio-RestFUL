@@ -47,8 +47,8 @@
 	</nav>
 <div class="container">
 	<br> <br>
-	<div class="dropdown">
-		<button class="btn btn-primary dropdown-toggle" type="button"
+	<div class="dropdown" style="float:right;margin-top:3%;">
+		<button  class="btn btn-primary dropdown-toggle" type="button"
 			data-toggle="dropdown">
 			Almacenes <span class="caret"></span>
 		</button>

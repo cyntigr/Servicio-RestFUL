@@ -9,10 +9,11 @@
 <title>Administración</title>
 
 </head>
-<body style="background-image:url(2270.jpg);background-repeat: no-repeat;
+<body style="background-image:url(fondo.jpg);background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center; " >
-<div style="margin:auto;width:400px;padding-top:95px;">
+    <br><br><br><br>
+<div style="margin:auto;width:400px;background-color:rgba(215, 215, 215, 0.8);padding-top:1px;padding-left:25px;padding-bottom:10px;">
 <form action="comprobarContrasena.jsp" method="get"  role="form" data-toggle="validator">
 <fieldset >
   <legend>Administración de almacenes</legend>
@@ -29,7 +30,6 @@
   </div>
 </fieldset>
 </form>
-<a href='https://www.freepik.es/vector-gratis/gradiente-de-textura-de-fondo-abstracto_1359668.htm'>Vector de Fondo creado por Sketchepedia</a>
 </div>
 
 </body>

@@ -7,7 +7,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
-
+<%@page import="org.apache.commons.codec.digest.DigestUtils" %>
 <%@page import="com.clase.almacen.model.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -20,7 +20,9 @@
 <body>
 	<%
 		String usuari = request.getParameter("usuari");
-		String contrasen = request.getParameter("contrasen");
+	  String textoSinEncriptar=request.getParameter("contrasen"); 
+	  String textoEncriptadoConMD5=DigestUtils.md5Hex(textoSinEncriptar); 
+		String contrasen = textoEncriptadoConMD5;
 
 		// Comprueba la existencia del número de socio introducido
 		Class.forName("org.postgresql.Driver");

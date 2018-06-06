@@ -38,7 +38,7 @@
 			if (m.get(usuari).equals(contrasen)) {
 
 				out.println(
-						"<script> window.location.replace('http://localhost:8080/Almacen-web/almacenes.jsp');</script>");
+						"<script> window.location.replace('http://localhost:8080/Almacen-web/home.jsp');</script>");
 			} else {
 				out.println("<br><br><br>");
 				out.println("Lo siento, la contraseña es incorrecta.<br>");

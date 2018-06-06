@@ -27,6 +27,8 @@
     <input type="password" style="width: 150px;" class="form-control" name="contrasen">
   </div>
   <button type="submit" class="btn btn-default">Entrar</button>
+  <br><br>
+  <p>Almacenes Alhambra</p>
   </div>
 </fieldset>
 </form>
